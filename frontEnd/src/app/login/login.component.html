@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login </title>
+</head>
+<body>
+
+    <div class="container row ">
+       <div class=" col-8 offset-4 card p-5" style="margin-top:45px;">
+        <form  [formGroup]="login" (submit)="onLogin()">
+
+            <h4>Login Here !</h4>
+            <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{error}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+        <div class="form-group">
+            <label for="Email"> Enter The Email <small class="text-danger"> * </small></label>
+            <input required formControlName="Email" type="text" >
+
+            
+        </div>
+        <div class="form-group">
+            <label for="Password"> Enter The Password  <small class="text-danger"> * </small></label>
+            <input required formControlName="Password" type="Password" class="form-control" name="Password" >
+           
+        </div>
+        
+        <div class="form-group">
+            <input [disabled]="!login.valid"   type="submit" class="form-control btn btn-primary mb-2" value="Log In" name="Login">
+            
+
+        </div>
+        </form>
+       </div>
+    </div>
+</body>
+</html>
